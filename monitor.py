@@ -54,11 +54,19 @@ QUERY = """query hotel_shopAvailOptions_shopPropAvail($arrivalDate: String!, $ct
 
 HEADERS = {
     "accept": "*/*",
+    "accept-encoding": "gzip, deflate, br",
+    "accept-language": "en-US,en;q=0.9",
     "content-type": "application/json",
     "dx-platform": "web",
     "origin": "https://www.hilton.com",
     "referer": "https://www.hilton.com/en/book/reservation/rooms/",
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+    "sec-ch-ua": '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
 }
 
 # Pulling authorization details saved in Step 3 securely out of the server environment variables
@@ -109,4 +117,7 @@ def main():
         print(f"Network error during lookup task: {e}")
 
 if __name__ == "__main__":
+    # TEMPORARY TEST LINE: This bypasses Hilton entirely to test your Telegram secrets
+    send_alert("Test Alert: GitHub Actions successfully talked to your Telegram bot!")
+    
     main()
