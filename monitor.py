@@ -96,7 +96,7 @@ def main():
             shop_avail = hotel_data.get("shopAvail", {})
             rooms = shop_avail.get("roomTypes", [])
             
-            if rooms:
+            if not rooms:
                 msg = f"🚨🚨 HILTON ALERT: May 21-24, 2027 rooms are officially LIVE! Book right now: https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=LASDAHW&arrivalDate=2027-05-21&departureDate=2027-05-24"
                 send_alert(msg)
                 print("Rooms found! Instant notification dispatched.")
